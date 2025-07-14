@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mnemo by Sphynx Capital - The Future of Business Funding</title>
+    <meta name="description" content="The undisputed leader in MCA financing. ChatMCA by Sphynx Capital uses a sentient AI core to provide instant, immersive, and deeply personalized underwriting, making us the most visited and profitable business funding site.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💎%3C/text%3E%3C/svg%3E">
+
+    <!-- Fonts & Scripts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Tailwind CSS Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Manrope', 'sans-serif'], },
+                    colors: {
+                        'quantum-bg': '#0a0c1f',
+                        'quantum-surface': '#13152c',
+                        'quantum-glass': 'rgba(19, 21, 44, 0.6)',
+                        'quantum-primary': '#002766', // Hyper Royal Deep Blue
+                        'quantum-primary-light': '#17A8FF', // Electric Blue
+                        'quantum-secondary': '#F9C900', // Luxe Gold
+                        'quantum-text-light': '#a7b2ff',
+                        'quantum-text-dark': '#e2e8ff',
+                        'quantum-border': 'rgba(0, 39, 102, 0.4)',
+                        'quantum-success': '#00ff88',
+                        'quantum-error': '#ff3d5a',
+                        'quantum-amber': '#ffc657',
+                        'quantum-accent-pink': '#ff00aa',
+                        'quantum-accent-green': '#00ffaa',
+                        'platinum-silver': '#F4F5F6',
+                        'subtle-charcoal': '#131B2D',
+                    },
+                    boxShadow: {
+                        'primary-glow': '0 0 25px rgba(0, 39, 102, 0.5)',
+                        'secondary-glow': '0 0 20px rgba(249, 201, 0, 0.4)',
+                        'inner-light': 'inset 0 1px 2px 0 rgba(255, 255, 255, 0.05)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'slide-in-up': 'slideInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+                        'pulse-glow': 'pulseGlow 4s infinite ease-in-out',
+                        'stream-in': 'streamIn 0.5s ease-out forwards',
+                        'blink-caret': 'blinkCaret 1s step-end infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { 'from': { opacity: 0 }, 'to': { opacity: 1 } },
+                        slideInUp: { 'from': { opacity: 0, transform: 'translateY(30px)' }, 'to': { opacity: 1, transform: 'translateY(0)' } },
+                        pulseGlow: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 25px rgba(0, 39, 102, 0.4)' },
+                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 40px rgba(0, 39, 102, 0.7)' },
+                        },
+                        streamIn: { 'from': { opacity: 0, transform: 'translateY(20px) scale(0.95)' }, 'to': { opacity: 1, transform: 'translateY(0) scale(1)' } },
+                        blinkCaret: { 'from, to': { borderColor: 'transparent' }, '50%': { borderColor: 'currentColor' }, },
+                    }
+                },
+            },
+        }
+    </script>
+
+    <!-- Core Styles -->
+    <style type="text/css">
+      :root { color-scheme: dark; }
+      body { background-color: #0a0c1f; color: #e2e8ff; }
+      #quantum-bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.7; }
+      .glassmorphism { background: rgba(19, 21, 44, 0.6); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border: 1px solid rgba(0, 39, 102, 0.2); box-shadow: inset 0 1px 2px 0 rgba(255, 255, 255, 0.05); }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(0, 39, 102, 0.3); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(0, 39, 102, 0.5); }
+    </style>
+
+    <!-- ES Module Import Map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+          "@google/genai": "https://esm.sh/@google/genai@0.14.0"
+        }
+      }
+    </script>
+</head>
+
+<body class="bg-quantum-bg text-quantum-text-dark font-sans antialiased">
+    <canvas id="quantum-bg-canvas"></canvas>
+    <div id="root" class="relative z-10"></div>
+
+    <!-- React Application Script -->
+    <script type="module" src="/index.tsx"></script>
+    <script>
+        // Wave Animation
+        const canvas = document.getElementById('quantum-bg-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 1.5 + 0.5,
+                color: `rgba(0, 39, 102, ${Math.random() * 0.5 + 0.2})`
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
