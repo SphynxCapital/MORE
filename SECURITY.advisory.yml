@@ -1,0 +1,50 @@
+schema_version: 1.3.0
+id: gemini-integration-security-policy
+summary: Security advisory and vulnerability disclosure policy for Gemini-integrated AI project
+published: 2025-07-17T00:00:00Z
+withdrawn: null
+aliases: []
+affected:
+  - package:
+      ecosystem: custom
+      name: gemini-ai-integration
+    versions:
+      - ">=4.0.0 <5.0.0"
+      - ">=5.0.0 <5.1.0"
+    ranges:
+      - type: semver
+        events:
+          - introduced: "4.0.0"
+          - fixed: "5.1.0"
+severity: HIGH
+cvss_v3: "7.5"
+references:
+  - type: documentation
+    url: https://github.com/OWNER/REPO/blob/main/SECURITY.md
+  - type: advisory
+    url: https://github.com/OWNER/REPO/security/advisories
+  - type: email
+    url: mailto:security@yourdomain.com
+credits:
+  - name: Internal Security Review Team
+    type: organization
+  - name: Community Researchers
+    type: community
+description: |
+  This advisory outlines supported versions, Gemini/Google Labs API integration security boundaries, GitHub workflow controls, and reporting/triage timelines for any vulnerabilities discovered in the AI-assisted application framework.
+
+  Users running versions older than 4.0 or between 5.0.x and 5.1.x are strongly encouraged to upgrade immediately.
+
+  Gemini-based inference systems must follow sandbox policies. OAuth2-protected API secrets and output data handling are secured using project-level encryption and commit-based access audit trails.
+
+solutions:
+  - Upgrade to version 5.1.x or higher.
+  - Enable auto-commit protection and key rotation for GitHub-linked pipelines.
+  - Report any suspicious inference behavior through official disclosure channels.
+
+tools:
+  - Google Gemini API
+  - Vertex AI
+  - GitHub Actions
+  - Google Drive OAuth integrations
+
